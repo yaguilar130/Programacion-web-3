@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Lista de Usuarios</h1>
+        <a href="/add" class="btn btn-primary mb-3">Agregar Usuario</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% usuarios.forEach(usuario => { %>
+                <tr>
+                    <td><%= usuario.id %></td>
+                    <td><%= usuario.nombre %></td>
+                    <td><%= usuario.email %></td>
+                    <td>
+                        <a href="/edit/<%= usuario.id %>" class="btn btn-warning">Editar</a>
+                        <a href="/delete/<%= usuario.id %>" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
